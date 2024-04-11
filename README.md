@@ -14,6 +14,8 @@ npx cap sync
 <docgen-index>
 
 * [`echo(...)`](#echo)
+* [`listApps(...)`](#listapps)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
@@ -33,5 +35,39 @@ echo(options: { value: string; }) => Promise<{ value: string; }>
 **Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
 
 --------------------
+
+
+### listApps(...)
+
+```typescript
+listApps(showSystemApps: boolean) => Promise<AppListReturn>
+```
+
+| Param                | Type                 |
+| -------------------- | -------------------- |
+| **`showSystemApps`** | <code>boolean</code> |
+
+**Returns:** <code>Promise&lt;<a href="#applistreturn">AppListReturn</a>&gt;</code>
+
+--------------------
+
+
+### Interfaces
+
+
+#### AppListReturn
+
+| Prop          | Type                                |
+| ------------- | ----------------------------------- |
+| **`appList`** | <code>ProcessedPackageInfo[]</code> |
+
+
+#### ProcessedPackageInfo
+
+| Prop              | Type                |
+| ----------------- | ------------------- |
+| **`packageName`** | <code>string</code> |
+| **`name`**        | <code>string</code> |
+| **`icon`**        | <code>string</code> |
 
 </docgen-api>

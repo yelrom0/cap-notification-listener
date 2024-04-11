@@ -4,11 +4,11 @@ export interface CapNotifyPlugin {
 }
 
 export interface AppListReturn {
-  appList: ProcessedPackageInfo[]
+  appList: string;
 }
 
 export interface ProcessedPackageInfo {
   packageName: string;
   name: string;
-  icon: string;
+  icon: Blob;
 }

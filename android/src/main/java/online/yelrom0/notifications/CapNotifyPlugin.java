@@ -7,11 +7,13 @@ import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
+import java.util.ArrayList;
+import java.util.List;
 
 @CapacitorPlugin(name = "CapNotify")
 public class CapNotifyPlugin extends Plugin {
 
-    private CapNotify implementation = new CapNotify();
+    private final CapNotify implementation = new CapNotify();
 
     @PluginMethod
     public void echo(PluginCall call) {
@@ -26,8 +28,20 @@ public class CapNotifyPlugin extends Plugin {
     public void listApps(PluginCall call) {
         Boolean showSystemApps = call.getBoolean("showSystemApps");
         Context ctx = this.getActivity().getApplicationContext();
+
+        List<ProcessedPackageInfo> infoList = implementation.listApps(ctx, showSystemApps);
+        List<JSObject> appInfoList = new ArrayList<JSObject>();
+        JSObject appInfo = new JSObject();
+
+        for (ProcessedPackageInfo info : infoList) {
+            appInfo.put("packageName", info.packageName);
+            appInfo.put("name", info.name);
+            appInfo.put("icon", info.icon);
+            appInfoList.add(appInfo);
+        }
+
         JSObject ret = new JSObject();
-        ret.put("appList", implementation.listApps(ctx, showSystemApps));
+        ret.put("appList", appInfoList);
         call.resolve(ret);
     }
 }

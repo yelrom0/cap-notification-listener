@@ -57,17 +57,8 @@ listApps(showSystemApps: boolean) => Promise<AppListReturn>
 
 #### AppListReturn
 
-| Prop          | Type                                |
-| ------------- | ----------------------------------- |
-| **`appList`** | <code>ProcessedPackageInfo[]</code> |
-
-
-#### ProcessedPackageInfo
-
-| Prop              | Type                |
-| ----------------- | ------------------- |
-| **`packageName`** | <code>string</code> |
-| **`name`**        | <code>string</code> |
-| **`icon`**        | <code>string</code> |
+| Prop          | Type                |
+| ------------- | ------------------- |
+| **`appList`** | <code>string</code> |
 
 </docgen-api>

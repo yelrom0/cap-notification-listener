@@ -90,6 +90,11 @@ public class CapNotify {
     }
 
     public List<ProcessedPackageInfo> listApps(Context ctx, Boolean showSystemApps) {
+
+        if (showSystemApps == null) {
+            showSystemApps = false;
+        }
+
         PackageManager packageManager = ctx.getPackageManager();
 
         if (!showSystemApps) {

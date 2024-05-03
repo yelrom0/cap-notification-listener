@@ -30,10 +30,11 @@ public class CapNotifyPlugin extends Plugin {
         Context ctx = this.getActivity().getApplicationContext();
 
         List<ProcessedPackageInfo> infoList = implementation.listApps(ctx, showSystemApps);
-        List<JSObject> appInfoList = new ArrayList<JSObject>();
-        JSObject appInfo = new JSObject();
+        List<JSObject> appInfoList = new ArrayList<>();
+
 
         for (ProcessedPackageInfo info : infoList) {
+            JSObject appInfo = new JSObject();
             appInfo.put("packageName", info.packageName);
             appInfo.put("name", info.name);
             appInfo.put("icon", info.icon);

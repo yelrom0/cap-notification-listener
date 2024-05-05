@@ -37,6 +37,12 @@ public class CapNotifyPlugin extends Plugin {
             JSObject appInfo = new JSObject();
             appInfo.put("packageName", info.packageName);
             appInfo.put("name", info.name);
+            // below is the template for the converting the icon to bmp
+            // final Bitmap bmp = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+            // below is my attempt to get the icon
+            // final Bitmap bmp = Bitmap.createBitmap(info.icon.getIntrinsicWidth(), info.icon.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+            // appInfo.put("icon", bmp);
+            // below is the old line
             appInfo.put("icon", info.icon);
             appInfoList.add(appInfo);
         }
